@@ -14,15 +14,8 @@ public class Plateau {
         return xLength;
     }
 
-    public void set_xLength(int xLength) {
-        this.xLength = xLength;
-    }
-
     public int get_yLength() {
         return yLength;
     }
 
-    public void set_yLength(int yLength) {
-        this.yLength = yLength;
-    }
 }
