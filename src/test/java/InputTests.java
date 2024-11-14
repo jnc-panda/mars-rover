@@ -4,6 +4,7 @@ import jdk.jfr.Description;
 import org.junit.Test;
 
 
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -19,11 +20,14 @@ public class InputTests {
         receiver.inputToInstructions(input1);
         receiver.inputToInstructions(input2);
 
-        Instruction[] expected1 = {Instruction.L};
-        Instruction[] expected2 = {Instruction.M};
+        ArrayList<Instruction> expected1 = new ArrayList<>();
+        expected1.add(Instruction.L);
 
-        Instruction[] result1 = receiver.inputToInstructions(input1);
-        Instruction[] result2 = receiver.inputToInstructions(input2);
+        ArrayList<Instruction> expected2 = new ArrayList<>();
+        expected2.add(Instruction.M);
+
+        ArrayList<Instruction> result1 = receiver.inputToInstructions(input1);
+        ArrayList<Instruction> result2 = receiver.inputToInstructions(input2);
 
         assertEquals(expected1, result1);
         assertEquals(expected2, result2);
