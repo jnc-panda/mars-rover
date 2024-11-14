@@ -98,21 +98,18 @@ public class InputTests {
         ReceiveInput receiver = new ReceiveInput();
         String input1 = "00N";
         String input2 = "12S";
+        String input3 = "45D";
 
         Position expected1 = new Position(0, 0 , CompassPoint.N);
         Position expected2 = new Position(1 ,2, CompassPoint.S);
 
         Position result1 = receiver.inputToPosition(input1);
         Position result2 = receiver.inputToPosition(input2);
-
-        System.out.println(expected1);
-        System.out.println(result1);
-
-        System.out.println(expected2);
-        System.out.println(result2);
+        Position result3 = receiver.inputToPosition(input3);
 
         assertEquals(expected1.toString(), result1.toString());
         assertEquals(expected2.toString(), result2.toString());
+        assertNull(result3);
 
     }
 //

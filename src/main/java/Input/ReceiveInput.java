@@ -29,7 +29,7 @@ public class ReceiveInput {
                throw new InputMismatchException();
            }
        }
-       catch(IndexOutOfBoundsException e) {
+       catch(IndexOutOfBoundsException | IllegalArgumentException e) {
            System.out.println(e.getMessage());
            return null;
        }
