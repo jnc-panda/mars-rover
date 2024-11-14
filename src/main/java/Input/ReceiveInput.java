@@ -5,6 +5,7 @@ import Boundaries.Instruction;
 import Boundaries.Position;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -12,13 +13,26 @@ public class ReceiveInput {
 
 
     public Position inputToPosition(String input) {
-        int xCord = Character.getNumericValue(input.charAt(0));
-        int yCord = Character.getNumericValue(input.charAt(1));
-        char direction = input.charAt(2);
-        Function<Character, CompassPoint> compassDirection = c ->
-            CompassPoint.valueOf(c.toString());
 
-        return new Position(xCord, yCord, compassDirection.apply(direction));
+       try {
+           if(Character.isDigit(input.charAt(0)) && Character.isDigit(input.charAt(1))) {
+               int xCord = Character.getNumericValue(input.charAt(0));
+               int yCord = Character.getNumericValue(input.charAt(1));
+               char direction = input.charAt(2);
+
+               Function<Character, CompassPoint> compassDirection = c ->
+                       CompassPoint.valueOf(c.toString());
+
+               return new Position(xCord, yCord, compassDirection.apply(direction));
+           }
+           else {
+               throw new InputMismatchException();
+           }
+       }
+       catch(IndexOutOfBoundsException e) {
+           System.out.println(e.getMessage());
+           return null;
+       }
     }
 
     public ArrayList<Instruction> inputToInstructions(String input) {
@@ -42,8 +56,6 @@ public class ReceiveInput {
         }
         return instructions;
         }
-
-
 
     }
 

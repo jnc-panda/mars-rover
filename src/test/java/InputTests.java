@@ -115,4 +115,18 @@ public class InputTests {
         assertEquals(expected2.toString(), result2.toString());
 
     }
+//
+//    @Test
+//    @Description("Tests an incorrectly formatted string input can't be returned as Position")
+//    public void testBadSpawnPointInput(){
+//        ReceiveInput receiver = new ReceiveInput();
+//        String input1 = "00T";
+//        String input2 = "1S";
+//
+//        Position result1 = receiver.inputToPosition(input1);
+//        Position result2 = receiver.inputToPosition(input2);
+//
+//        assertNull(result1);
+//        assertNull(result2);
+//
 }
