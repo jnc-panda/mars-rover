@@ -11,4 +11,11 @@ public class Position {
         this.yCoordinate = yCoordinate;
         this.direction = direction;
     }
+
+    @Override
+    public String toString(){
+        String output = xCoordinate + " " + yCoordinate + " " + direction.toString();
+        return output;
+    }
+
 }

@@ -105,8 +105,14 @@ public class InputTests {
         Position result1 = receiver.inputToPosition(input1);
         Position result2 = receiver.inputToPosition(input2);
 
-        assertEquals(expected1, result1);
-        assertEquals(expected2, result2);
+        System.out.println(expected1);
+        System.out.println(result1);
+
+        System.out.println(expected2);
+        System.out.println(result2);
+
+        assertEquals(expected1.toString(), result1.toString());
+        assertEquals(expected2.toString(), result2.toString());
 
     }
 }
