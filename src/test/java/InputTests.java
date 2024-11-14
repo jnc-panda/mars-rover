@@ -1,4 +1,6 @@
+import Boundaries.CompassPoint;
 import Boundaries.Instruction;
+import Boundaries.Position;
 import Input.ReceiveInput;
 import jdk.jfr.Description;
 import org.junit.Test;
@@ -84,6 +86,24 @@ public class InputTests {
 
         ArrayList<Instruction> result1 = receiver.inputToInstructions(input1);
         ArrayList<Instruction> result2 = receiver.inputToInstructions(input2);
+
+        assertEquals(expected1, result1);
+        assertEquals(expected2, result2);
+
+    }
+
+    @Test
+    @Description("Tests a string input can be returned as Position")
+    public void testSpawnPointInput(){
+        ReceiveInput receiver = new ReceiveInput();
+        String input1 = "00N";
+        String input2 = "12S";
+
+        Position expected1 = new Position(0, 0 , CompassPoint.N);
+        Position expected2 = new Position(1 ,2, CompassPoint.S);
+
+        Position result1 = receiver.inputToPosition(input1);
+        Position result2 = receiver.inputToPosition(input2);
 
         assertEquals(expected1, result1);
         assertEquals(expected2, result2);

@@ -1,10 +1,17 @@
 package Input;
 
+import Boundaries.CompassPoint;
 import Boundaries.Instruction;
+import Boundaries.Position;
 
 import java.util.ArrayList;
 
 public class ReceiveInput {
+
+
+    public Position inputToPosition(String input) {
+
+    }
 
     public ArrayList<Instruction> inputToInstructions(String input) {
 
@@ -27,6 +34,8 @@ public class ReceiveInput {
         }
         return instructions;
         }
+
+
 
     }
 
