@@ -1,4 +1,6 @@
-package Boundaries;
+package Input;
+
+import Boundaries.Instruction;
 
 import java.util.ArrayList;
 

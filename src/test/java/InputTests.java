@@ -1,5 +1,5 @@
 import Boundaries.Instruction;
-import Boundaries.ReceiveInput;
+import Input.ReceiveInput;
 import jdk.jfr.Description;
 import org.junit.Test;
 
