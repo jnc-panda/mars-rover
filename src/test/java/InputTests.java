@@ -66,4 +66,27 @@ public class InputTests {
         assertEquals(expected1, result1);
         assertEquals(expected2, result2);
     }
+
+    @Test
+    @Description("Tests String of one instruction is converted to an array of valid Instructions (L,R,M)")
+    public void testValidInstructionsInvalid(){
+        ReceiveInput receiver = new ReceiveInput();
+        String input1 = "LTR";
+        String input2 = "MOL";
+
+        ArrayList<Instruction> expected1 = new ArrayList<>();
+        expected1.add(Instruction.L);
+        expected1.add(Instruction.R);
+
+        ArrayList<Instruction> expected2 = new ArrayList<>();
+        expected2.add(Instruction.M);
+        expected2.add(Instruction.L);
+
+        ArrayList<Instruction> result1 = receiver.inputToInstructions(input1);
+        ArrayList<Instruction> result2 = receiver.inputToInstructions(input2);
+
+        assertEquals(expected1, result1);
+        assertEquals(expected2, result2);
+
+    }
 }

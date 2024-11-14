@@ -20,7 +20,7 @@ public class ReceiveInput {
                     instructions.add(Instruction.M);
                     break;
                 default:
-                    System.out.printf("Command %c omitted.", command);
+                    System.out.printf("Command %c omitted.\n", command);
             }
         }
         return instructions;
