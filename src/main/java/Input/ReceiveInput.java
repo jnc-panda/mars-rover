@@ -2,15 +2,22 @@ package Input;
 
 import Boundaries.CompassPoint;
 import Boundaries.Instruction;
+import Boundaries.Plateau;
 import Boundaries.Position;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class ReceiveInput {
 
+
+
+    public Plateau inputToPlateau(int[] dimensions){
+        return new Plateau(dimensions[0], dimensions[1]);
+    }
 
     public Position inputToPosition(String input) {
 

@@ -18,4 +18,7 @@ public class Plateau {
         return yLength;
     }
 
+    public String toString() {
+        return String.format("(%d, %d)", xLength, yLength);
+    }
 }

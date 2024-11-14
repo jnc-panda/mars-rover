@@ -1,5 +1,6 @@
 import Boundaries.CompassPoint;
 import Boundaries.Instruction;
+import Boundaries.Plateau;
 import Boundaries.Position;
 import Input.ReceiveInput;
 import jdk.jfr.Description;
@@ -98,32 +99,47 @@ public class InputTests {
         ReceiveInput receiver = new ReceiveInput();
         String input1 = "00N";
         String input2 = "12S";
-        String input3 = "45D";
 
         Position expected1 = new Position(0, 0 , CompassPoint.N);
         Position expected2 = new Position(1 ,2, CompassPoint.S);
 
         Position result1 = receiver.inputToPosition(input1);
         Position result2 = receiver.inputToPosition(input2);
-        Position result3 = receiver.inputToPosition(input3);
 
         assertEquals(expected1.toString(), result1.toString());
         assertEquals(expected2.toString(), result2.toString());
-        assertNull(result3);
 
     }
-//
-//    @Test
-//    @Description("Tests an incorrectly formatted string input can't be returned as Position")
-//    public void testBadSpawnPointInput(){
-//        ReceiveInput receiver = new ReceiveInput();
-//        String input1 = "00T";
-//        String input2 = "1S";
-//
-//        Position result1 = receiver.inputToPosition(input1);
-//        Position result2 = receiver.inputToPosition(input2);
-//
-//        assertNull(result1);
-//        assertNull(result2);
-//
+
+    @Test
+    @Description("Tests an incorrectly formatted string input can't be returned as Position")
+    public void testBadSpawnPointInput() {
+        ReceiveInput receiver = new ReceiveInput();
+        String input1 = "00T";
+        String input2 = "1S";
+
+        Position result1 = receiver.inputToPosition(input1);
+        Position result2 = receiver.inputToPosition(input2);
+
+        assertNull(result1);
+        assertNull(result2);
+    }
+    @Test
+    @Description("Tests an incorrectly formatted string input can't be returned as Position")
+    public void testPlateauCreation() {
+        ReceiveInput receiveInput = new ReceiveInput();
+        int[] input1 = {5,4};
+        int[] input2 = {2,3};
+
+        Plateau expected1 = new Plateau(5,4);
+        Plateau expected2 = new Plateau(2,3);
+
+        Plateau result1 = receiveInput.inputToPlateau(input1);
+        Plateau result2 = receiveInput.inputToPlateau(input2);
+
+        assertEquals(expected1.toString(), result1.toString());
+        assertEquals(expected2.toString(), result2.toString());
+
+    }
+
 }
