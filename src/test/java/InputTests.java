@@ -2,7 +2,7 @@ import Boundaries.CompassPoint;
 import Boundaries.Instruction;
 import Boundaries.Plateau;
 import Boundaries.Position;
-import Input.ReceiveInput;
+import Input.ProcessInput;
 import jdk.jfr.Description;
 import org.junit.Test;
 
@@ -16,7 +16,7 @@ public class InputTests {
     @Test
     @Description("Tests String of one instruction is converted to an array of valid Instructions (L,R,M)")
     public void testValidInstructionsSingle(){
-        ReceiveInput receiver = new ReceiveInput();
+        ProcessInput receiver = new ProcessInput();
         String input1 = "L";
         String input2 = "M";
 
@@ -40,7 +40,7 @@ public class InputTests {
     @Test
     @Description("Tests String of multiple instructions is converted to an array of valid Instructions (L,R,M)")
     public void testValidInstructionsMultiple() {
-        ReceiveInput receiver = new ReceiveInput();
+        ProcessInput receiver = new ProcessInput();
         String input1 = "LRMRMML";
         String input2 = "MRRRLLRM";
 
@@ -73,7 +73,7 @@ public class InputTests {
     @Test
     @Description("Tests String of one instruction is converted to an array of valid Instructions (L,R,M)")
     public void testValidInstructionsInvalid(){
-        ReceiveInput receiver = new ReceiveInput();
+        ProcessInput receiver = new ProcessInput();
         String input1 = "LTR";
         String input2 = "MOL";
 
@@ -96,7 +96,7 @@ public class InputTests {
     @Test
     @Description("Tests a string input can be returned as Position")
     public void testSpawnPointInput(){
-        ReceiveInput receiver = new ReceiveInput();
+        ProcessInput receiver = new ProcessInput();
         String input1 = "00N";
         String input2 = "12S";
 
@@ -114,7 +114,7 @@ public class InputTests {
     @Test
     @Description("Tests an incorrectly formatted string input can't be returned as Position")
     public void testBadSpawnPointInput() {
-        ReceiveInput receiver = new ReceiveInput();
+        ProcessInput receiver = new ProcessInput();
         String input1 = "00T";
         String input2 = "1S";
 
@@ -127,15 +127,15 @@ public class InputTests {
     @Test
     @Description("Tests an incorrectly formatted string input can't be returned as Position")
     public void testPlateauCreation() {
-        ReceiveInput receiveInput = new ReceiveInput();
+        ProcessInput processInput = new ProcessInput();
         int[] input1 = {5,4};
         int[] input2 = {2,3};
 
         Plateau expected1 = new Plateau(5,4);
         Plateau expected2 = new Plateau(2,3);
 
-        Plateau result1 = receiveInput.inputToPlateau(input1);
-        Plateau result2 = receiveInput.inputToPlateau(input2);
+        Plateau result1 = processInput.inputToPlateau(input1);
+        Plateau result2 = processInput.inputToPlateau(input2);
 
         assertEquals(expected1.toString(), result1.toString());
         assertEquals(expected2.toString(), result2.toString());

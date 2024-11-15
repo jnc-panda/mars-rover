@@ -6,12 +6,10 @@ import Boundaries.Plateau;
 import Boundaries.Position;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
-public class ReceiveInput {
+public class ProcessInput {
 
 
 
