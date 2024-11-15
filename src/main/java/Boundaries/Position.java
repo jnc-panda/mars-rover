@@ -2,9 +2,9 @@ package Boundaries;
 
 public class Position {
 
-    int xCoordinate;
-    int yCoordinate;
-    CompassPoint direction;
+    public int xCoordinate;
+    public int yCoordinate;
+    public CompassPoint direction;
 
     public Position(int xCoordinate, int yCoordinate, CompassPoint direction) {
         this.xCoordinate = xCoordinate;
