@@ -32,7 +32,10 @@ public class RoverTests {
 
         Position expected = new Position(1,1, CompassPoint.S);
 
-        assertEquals(expected, newPos);
+        System.out.println(newPos);
+        System.out.println(expected);
+
+        assertEquals(expected.toString(), newPos.toString());
 
     }
 

@@ -34,5 +34,17 @@ public class Rover {
         }
         return facing;
     }
+
+    public Position move(){
+        CompassPoint facing = position.direction;
+
+        switch(facing) {
+            case N -> position.yCoordinate += 1;
+            case E -> position.xCoordinate += 1;
+            case S -> position.yCoordinate -= 1;
+            case W -> position.xCoordinate -= 1;
+        }
+        return position;
+    }
 }
 
