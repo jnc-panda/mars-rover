@@ -21,8 +21,19 @@ public class RoverTests {
 
         assertEquals(expected, newPos);
 
+    }
+    @Test
+    @Description("Move the rover one unit")
+    public void testMove() {
+        Position position = new Position(1,2, CompassPoint.S);
+        Rover rover = new Rover("Geoff", position);
 
+        Position newPos = rover.move();
 
+        Position expected = new Position(1,1, CompassPoint.S);
+
+        assertEquals(expected, newPos);
 
     }
+
 }
