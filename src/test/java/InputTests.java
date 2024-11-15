@@ -3,6 +3,7 @@ import Boundaries.Instruction;
 import Boundaries.Plateau;
 import Boundaries.Position;
 import Input.ProcessInput;
+import Input.ReceiveInput;
 import jdk.jfr.Description;
 import org.junit.Test;
 
