@@ -1,6 +1,8 @@
 package Input;
 
+import java.util.ArrayList;
+
 public interface RoverInfo {
 
-    public String provideInfo();
+    public ArrayList<String> provideInfo();
 }

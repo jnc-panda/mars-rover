@@ -7,6 +7,7 @@ import Boundaries.Position;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.Locale;
 import java.util.function.Function;
 
 public class ProcessInput {
@@ -17,46 +18,40 @@ public class ProcessInput {
         return new Plateau(dimensions[0], dimensions[1]);
     }
 
-    public Position inputToPosition(String input) {
+    public Position inputToPosition(ArrayList<String> input) {
 
        try {
-           if(Character.isDigit(input.charAt(0)) && Character.isDigit(input.charAt(1))) {
-               int xCord = Character.getNumericValue(input.charAt(0));
-               int yCord = Character.getNumericValue(input.charAt(1));
-               char direction = input.charAt(2);
+               int xCord = Integer.parseInt(input.get(0));
+               int yCord = Integer.parseInt(input.get(1));
+               String direction = input.get(2).toUpperCase();
 
-               Function<Character, CompassPoint> compassDirection = c ->
-                       CompassPoint.valueOf(c.toString());
+               Function<String, CompassPoint> compassDirection = CompassPoint::valueOf;
 
                return new Position(xCord, yCord, compassDirection.apply(direction));
            }
-           else {
-               throw new InputMismatchException();
-           }
-       }
        catch(IndexOutOfBoundsException | IllegalArgumentException e) {
            System.out.println(e.getMessage());
            return null;
        }
     }
 
-    public ArrayList<Instruction> inputToInstructions(String input) {
+    public ArrayList<Instruction> inputToInstructions(ArrayList<String> input) {
 
         ArrayList<Instruction> instructions = new ArrayList<>();
-        char[] commands = input.toCharArray();
-        for(char command : commands) {
+
+        for(String command : input) {
             switch(command) {
-                case 'L':
+                case "L":
                     instructions.add(Instruction.L);
                     break;
-                case 'R':
+                case "R":
                     instructions.add(Instruction.R);
                     break;
-                case 'M':
+                case "M":
                     instructions.add(Instruction.M);
                     break;
                 default:
-                    System.out.printf("Command %c omitted.\n", command);
+                    System.out.printf("Command %s omitted.\n", command);
             }
         }
         return instructions;
