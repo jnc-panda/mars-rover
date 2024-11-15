@@ -2,22 +2,25 @@ package Rover;
 
 import Boundaries.CompassPoint;
 import Boundaries.Instruction;
+import Boundaries.Plateau;
 import Boundaries.Position;
+
+import java.util.ArrayList;
 
 public class Rover {
     String name;
-    Position position;
+    public Position position;
+    //public Position currentPosition;
 
     public Rover(String name, Position position) {
         this.name = name;
         this.position = position;
     }
 
-
-    public CompassPoint rotate(Instruction direction) {
+    public Position rotate(Instruction turn) {
         CompassPoint facing = position.direction;
 
-        if (direction == Instruction.L) {
+        if (turn == Instruction.L) {
             switch (facing) {
                 case CompassPoint.N -> facing = CompassPoint.W;
                 case CompassPoint.E -> facing = CompassPoint.N;
@@ -32,7 +35,8 @@ public class Rover {
                 case CompassPoint.W -> facing = CompassPoint.N;
             }
         }
-        return facing;
+        position = new Position(position.xCoordinate, position.yCoordinate, facing);
+        return position;
     }
 
     public Position move(){
@@ -44,7 +48,17 @@ public class Rover {
             case S -> position.yCoordinate -= 1;
             case W -> position.xCoordinate -= 1;
         }
+        position = new Position(position.xCoordinate, position.yCoordinate, position.direction);
         return position;
+    }
+
+    public void readInstructions(ArrayList<Instruction> instructions, Position position) {
+        for (Instruction instr : instructions) {
+            switch (instr) {
+                case L, R -> rotate(instr);
+                case M -> move();
+            }
+        }
     }
 }
 

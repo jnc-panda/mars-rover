@@ -15,11 +15,12 @@ public class RoverTests {
         Position position = new Position(1,2, CompassPoint.S);
         Rover rover = new Rover("Geoff", position);
 
-        CompassPoint newPos = rover.rotate(Instruction.L);
+        Position newPos = rover.rotate(Instruction.L);
+        CompassPoint newDir = newPos.direction;
 
         CompassPoint expected = CompassPoint.E;
 
-        assertEquals(expected, newPos);
+        assertEquals(expected, newDir);
 
     }
     @Test
